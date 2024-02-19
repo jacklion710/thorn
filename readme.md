@@ -20,7 +20,7 @@ This project is open source and we warmly invite collaboration from interested i
 
 ## Contributing
 
-If you are interested in contributing to the Audio Cloak Project, please feel free to fork the repository, make your changes, and submit a pull request. We also appreciate any feedback, suggestions, or ideas that can help improve the project. For more detailed information on how to contribute, please refer to our CONTRIBUTING.md file. If you wish to be added as a collaborator please [email me](mailto:jacob0leone@gmail.com)
+If you are interested in contributing to the Audio Cloak Project, please feel free to fork the repository, make your changes, and submit a pull request. We also appreciate any feedback, suggestions, or ideas that can help improve the project. For more detailed information on how to contribute, please refer to our CONTRIBUTING.md file. If you wish to be added as a collaborator please [email me](mailto:jack.lion710@gmail.com)
 
 ## Acknowledgments
 
