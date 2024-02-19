@@ -20,6 +20,8 @@ This project is open source and we warmly invite collaboration from interested i
 
 ## Technical Details
 
+![Thorn Project Flowchart](thorn-flowchart.svg)
+
 Some of the features & techniques to consider along the way are listed below.  
 
 ## Special Features
