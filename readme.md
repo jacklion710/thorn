@@ -24,7 +24,7 @@ This project is open source and we warmly invite collaboration from interested i
 
 Some of the features & techniques to consider along the way are listed below.  
 
-## Special Features
+## Spectral Features
 
 * Spectral Features Manipulation: Altering the spectral content of the audio subtly, such as the spectral centroid, spectral bandwidth, and spectral contrast, to mislead audio recognition models without significantly affecting the perceived audio quality.
 * Temporal Features Distortion: Temporal features, like zero-crossing rate and tempo, could be slightly modified. These changes would need to be imperceptible or minimally perceptible to human ears but significant enough to confuse AI models.
