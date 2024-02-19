@@ -1,18 +1,39 @@
 # perceptual_test.py
-def conduct_subjective_perceptual_test(original_audio, cloaked_audio):
+import torch
+import torchaudio
+
+def spectral_distance(original_audio_path, cloaked_audio_path):
     """
-    Conduct subjective listening tests to compare the perceptual quality of original and cloaked audio.
+    Calculate an objective metric representing the spectral distance between two audio files.
 
     Parameters:
-    - original_audio: The original audio sample before cloaking.
-    - cloaked_audio: The audio sample after cloaking.
+    - original_audio_path: Path to the original audio file.
+    - cloaked_audio_path: Path to the cloaked (modified) audio file.
 
-    Note: This function outlines the process and does not implement the actual listening test.
+    Returns:
+    - distance: A float representing the spectral distance between the two audio files.
     """
-    # 1. Prepare audio samples for testing
-    # 2. Recruit participants for the listening test
-    # 3. Play original and cloaked audio samples to participants in a controlled environment
-    # 4. Ask participants to rate the quality of each sample based on certain criteria (e.g., clarity, presence of artifacts)
-    # 5. Collect and analyze the ratings to assess the impact of cloaking on perceived audio quality
+    # Load the audio files
+    orig_waveform, orig_sr = torchaudio.load(original_audio_path)
+    cloaked_waveform, cloaked_sr = torchaudio.load(cloaked_audio_path)
 
-    pass
+    # Ensure the sample rates are equal or resample if necessary
+    if orig_sr != cloaked_sr:
+        cloaked_waveform = torchaudio.transforms.Resample(orig_sr, cloaked_sr)(cloaked_waveform)
+
+    # Compute Mel spectrograms
+    mel_spectrogram = torchaudio.transforms.MelSpectrogram()
+    orig_spec = mel_spectrogram(orig_waveform)
+    cloaked_spec = mel_spectrogram(cloaked_waveform)
+
+    # Calculate the spectral distance (e.g., Euclidean distance between spectrograms)
+    distance = torch.norm(orig_spec - cloaked_spec, p=2).item()
+
+    return distance
+
+# Example usage
+if __name__ == "__main__":
+    original_audio_path = "path/to/original/audio.wav"
+    cloaked_audio_path = "path/to/cloaked/audio.wav"
+    distance = spectral_distance(original_audio_path, cloaked_audio_path)
+    print(f"Spectral Distance: {distance}")
